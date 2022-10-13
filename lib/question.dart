@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz/mainscreen.dart';
 
 class Question extends StatelessWidget {
   final String questionText;
@@ -8,7 +9,7 @@ class Question extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       questionText,
-      style: const TextStyle(fontSize: 30),
+      style: TextStyle(fontSize: 30, color: textColor),
     );
   }
 }

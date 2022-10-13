@@ -7,10 +7,14 @@ class MyStack<T> {
     q.add(t);
   }
 
-  T pop() {
+  T? pop() {
     final last = q.last;
-    q.removeLast();
-    return last;
+    if (!last.empty()) {
+      q.removeLast();
+      return last;
+    } else {
+      return null;
+    }
   }
 
   String getAllValues() {

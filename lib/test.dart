@@ -1,32 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:quiz/mainscreen.dart';
 
-class Test extends StatelessWidget {
-  final int totalScore;
-  final int questionIndex;
-  final String scorevalues;
-  const Test(this.totalScore, this.questionIndex, this.scorevalues, {Key? key})
-      : super(key: key);
+void main() => runApp(MyApp());
 
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-            height: 200,
+    return MaterialApp(
+      title: 'Material App',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Material App Bar'),
+        ),
+        body: Center(
+          child: Container(
+            color: blackColor,
+            child: Text('Hello World'),
           ),
-        Text(
-          'totalScore : $totalScore',
-          style: const TextStyle(fontSize: 30),
         ),
-        Text(
-          'questionIndex : $questionIndex',
-          style: const TextStyle(fontSize: 30),
-        ),
-        Text(
-          scorevalues,
-          style: const TextStyle(fontSize: 30),
-        ),
-      ],
+      ),
     );
   }
 }

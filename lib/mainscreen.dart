@@ -13,11 +13,16 @@ class MainScreen extends StatefulWidget {
   }
 }
 
+Color whiteColor = Colors.white;
+Color blackColor = Colors.black;
+Color textColor = blackColor;
+Color backgroundColor = whiteColor;
 var questionIndex = 0;
 var totalScore = 0;
 MyStack scoreStack = MyStack();
 
 class MainScreenState extends State {
+  bool isSwitched = false;
   void answerQuestion(int score) {
     totalScore += score;
     scoreStack.push(score);
@@ -40,6 +45,21 @@ class MainScreenState extends State {
         questionIndex--;
         int lastScore = scoreStack.pop();
         totalScore -= lastScore;
+      }
+    });
+  }
+
+  themeSwitch(value) {
+    setState(() {
+      isSwitched = value;
+      if (isSwitched) {
+        //switch to dark mode
+        textColor = whiteColor;
+        backgroundColor = blackColor;
+      } else {
+        // go back to light mode
+        textColor = blackColor;
+        backgroundColor = whiteColor;
       }
     });
   }
@@ -78,15 +98,20 @@ class MainScreenState extends State {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Main Screen"),
+        actions: [Switch(value: isSwitched, onChanged: (themeSwitch))],
       ),
       body: Column(
+        
         children: [
+          
           Container(
+            color: backgroundColor,
+            
             child: questionIndex < questions.length
                 ? Quiz(questions, questionIndex, answerQuestion)
                 : Result(resetQuiz, totalScore),
           ),
-          
+
           // Test(totalScore, questionIndex, scoreStack.getAllValues()),
         ],
       ),

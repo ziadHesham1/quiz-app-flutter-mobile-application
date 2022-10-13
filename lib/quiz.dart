@@ -18,19 +18,21 @@ class Quiz extends StatelessWidget {
   Widget build(BuildContext context) {
     var questionList = qList[qIndex]['questionText'].toString();
     var answerList = qList[qIndex]['answers'] as List<Map<String, Object>>;
-    return Column(
-      children: [
-        Question(questionList),
-        ...answerList.map((ans) {
-          return Answer(
-              () => answerQuestion(
-                    int.parse(
-                      ans['score'].toString(),
+    return SizedBox(
+      child: Column(
+        children: [
+          Question(questionList),
+          ...answerList.map((ans) {
+            return Answer(
+                () => answerQuestion(
+                      int.parse(
+                        ans['score'].toString(),
+                      ),
                     ),
-                  ),
-              ans['text'].toString());
-        })
-      ],
+                ans['text'].toString());
+          })
+        ],
+      ),
     );
   }
 }
