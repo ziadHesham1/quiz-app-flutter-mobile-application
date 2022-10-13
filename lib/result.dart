@@ -14,14 +14,13 @@ class Result extends StatelessWidget {
         children: [
           Text(
             '$tScore',
-            style:  TextStyle(fontSize: 30,color: textColor),
+            style: TextStyle(fontSize: 30, color: textColor),
           ),
           ElevatedButton(
             onPressed: resetQuiz,
-            child:  const Text(
+            child: const Text(
               'restart the quiz',
               style: TextStyle(fontSize: 25),
-              
             ),
           )
         ],

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quiz/quiz.dart';
 import 'package:quiz/mystack.dart';
 import 'package:quiz/result.dart';
-import 'package:quiz/test.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -97,7 +96,9 @@ class MainScreenState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  questionIndex < questions.length?Text("Quistion ${questionIndex+1}"):const Text("Result"),
+        title: questionIndex < questions.length
+            ? Text("Quistion ${questionIndex + 1}")
+            : const Text("Result"),
         actions: [
           Switch(
             value: isSwitched,
