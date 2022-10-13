@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz/mainscreen.dart';
 
 class Result extends StatelessWidget {
   const Result(this.resetQuiz, this.tScore, {super.key});
@@ -13,13 +14,14 @@ class Result extends StatelessWidget {
         children: [
           Text(
             '$tScore',
-            style: const TextStyle(fontSize: 30),
+            style:  TextStyle(fontSize: 30,color: textColor),
           ),
           ElevatedButton(
             onPressed: resetQuiz,
-            child: const Text(
+            child:  const Text(
               'restart the quiz',
               style: TextStyle(fontSize: 25),
+              
             ),
           )
         ],

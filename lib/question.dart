@@ -9,7 +9,7 @@ class Question extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       questionText,
-      style: TextStyle(fontSize: 30, color: textColor),
+      style: TextStyle(fontSize: 30, color: textColor,),textAlign:TextAlign.center ,
     );
   }
 }

@@ -9,12 +9,8 @@ class MyStack<T> {
 
   T? pop() {
     final last = q.last;
-    if (!last.empty()) {
-      q.removeLast();
+     q.removeLast();
       return last;
-    } else {
-      return null;
-    }
   }
 
   String getAllValues() {

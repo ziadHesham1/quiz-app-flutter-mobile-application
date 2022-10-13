@@ -18,7 +18,7 @@ class Quiz extends StatelessWidget {
   Widget build(BuildContext context) {
     var questionList = qList[qIndex]['questionText'].toString();
     var answerList = qList[qIndex]['answers'] as List<Map<String, Object>>;
-    return SizedBox(
+    return SizedBox(   
       child: Column(
         children: [
           Question(questionList),

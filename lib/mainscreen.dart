@@ -41,7 +41,7 @@ class MainScreenState extends State {
 
   void goBack() {
     setState(() {
-      if (questionIndex >= 0) {
+      if (questionIndex > 0) {
         questionIndex--;
         int lastScore = scoreStack.pop();
         totalScore -= lastScore;
@@ -97,23 +97,29 @@ class MainScreenState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Main Screen"),
-        actions: [Switch(value: isSwitched, onChanged: (themeSwitch))],
-      ),
-      body: Column(
-        
-        children: [
-          
-          Container(
-            color: backgroundColor,
-            
-            child: questionIndex < questions.length
-                ? Quiz(questions, questionIndex, answerQuestion)
-                : Result(resetQuiz, totalScore),
+        title:  questionIndex < questions.length?Text("Quistion ${questionIndex+1}"):const Text("Result"),
+        actions: [
+          Switch(
+            value: isSwitched,
+            onChanged: (themeSwitch),
+            activeColor: whiteColor,
           ),
-
-          // Test(totalScore, questionIndex, scoreStack.getAllValues()),
         ],
+      ),
+      body: Container(
+        height: double.infinity,
+        color: backgroundColor,
+        child: Column(
+          children: [
+            Container(
+              child: questionIndex < questions.length
+                  ? Quiz(questions, questionIndex, answerQuestion)
+                  : Result(resetQuiz, totalScore),
+            ),
+
+            // Test(totalScore, questionIndex, scoreStack.getAllValues()),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: goBack,
