@@ -65,7 +65,7 @@ class MainScreenState extends State {
 
   final List<Map<String, Object>> questions = [
     {
-      'questionText': 'What\'s your favourite color?',
+      'questionText': 'What\'s your favorite color?',
       'answers': [
         {'text': 'Black', 'score': 10},
         {'text': 'Green', 'score': 20},
@@ -74,7 +74,7 @@ class MainScreenState extends State {
       ]
     },
     {
-      'questionText': 'What\'s your favourite animal?',
+      'questionText': 'What\'s your favorite animal?',
       'answers': [
         {'text': 'Rabbit', 'score': 10},
         {'text': 'Tiger', 'score': 20},
@@ -83,7 +83,7 @@ class MainScreenState extends State {
       ]
     },
     {
-      'questionText': 'What\'s your favourite instructor?',
+      'questionText': 'What\'s your favorite instructor?',
       'answers': [
         {'text': 'Hassan', 'score': 10},
         {'text': 'Hassan', 'score': 20},
@@ -97,7 +97,7 @@ class MainScreenState extends State {
     return Scaffold(
       appBar: AppBar(
         title: questionIndex < questions.length
-            ? Text("Quistion ${questionIndex + 1}")
+            ? Text("Question ${questionIndex + 1}")
             : const Text("Result"),
         actions: [
           Switch(
